@@ -6,9 +6,6 @@ jobs:
     outputs:
       charts: ${{ steps.filter.outputs.charts }}
       values: ${{ steps.filter.outputs.values }}
-      chart_f: ${{ steps.filter.outputs.charts_files }}
-      values_f: ${{ steps.filter.outputs.values_files }}
-      chart_l: ${{ steps.python.outputs.chart_path }}
     steps:
     - uses: actions/checkout@v2
     - uses: dorny/paths-filter@v2
@@ -26,9 +23,7 @@ jobs:
       id: python
       with:
         script: |
-            print("hello")
             string='${{ steps.filter.outputs.charts_files }}'
-            print(string.split("templates",1)[0])
             location=string.split("templates",1)[0]
             print(location)
             set_output("chart_path",location)
