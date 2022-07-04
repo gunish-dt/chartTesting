@@ -19,7 +19,7 @@ jobs:
           charts:
             - added|modified: 'charts/*/templates/*'
           values:
-            - added|modified: 'charts/*/*/values.yaml'
+            - added|modified: 'charts/**/values.yaml'
     - run: echo ${{ steps.filter.outputs.values_files }} echo ${{ steps.filter.outputs.charts_files }}
     - uses: actions/setup-python@v2
     - uses: jannekem/run-python-script-action@v1
